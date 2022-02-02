@@ -1,6 +1,6 @@
 ﻿using bArt_Test_task.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +13,6 @@ namespace bArt_Test_task.Data
         {
 
         }
-
         public DbSet<Account> Account { get; set; }
 
         public DbSet<Contact> Contact { get; set; }
