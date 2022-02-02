@@ -7,5 +7,6 @@ namespace bArt_Test_task.Models
         public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
     }
 }

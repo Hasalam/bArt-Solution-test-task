@@ -1,0 +1,66 @@
+﻿
+@model IEnumerable<Contact>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Contact List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Account" asp-action="CreateContact" class="btn btn-primary">
+                Create New Category
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        eMail
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Last name
+                    </th>
+
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                <tr>
+                    <td width="20%">@obj.EMail</td>
+                    <td width="20%">@obj.Name</td>
+                    <td width="20%">@obj.Last_Name</td>
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Category" asp-route-Id="@obj.EMail" asp-action="Edit" class="btn btn-primary mx-2">
+                                Edit
+                            </a>
+                            <a asp-controller="Category" asp-route-Id="@obj.EMail" asp-action="Delete" class="btn btn-danger mx-2">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Contacts exists.</p>
+    }
+</div>
+
+
